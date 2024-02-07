@@ -1,0 +1,30 @@
+### Node ###
+# Logs
+logs
+*.log
+npm-debug.log*
+
+
+# Dependency directory
+node_modules
+
+# Optional npm cache directory
+.npm
+
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+
+### Sass ###
+*.css
+.sass-cache/
+*.css.map
+
+### Webpack ###
+dist
+
+### Visual Studio Code ###
+.settings/
+.vscode/
