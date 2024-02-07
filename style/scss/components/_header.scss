@@ -1,0 +1,23 @@
+.header {
+    background-color: $backgroundHero;
+
+
+    // @include media("tablet") {
+    // };
+
+    // @include media("desktop") {
+    // };
+
+    &__title {
+        color: $title;
+        font-size: 20px;
+
+        @include media("tablet") {
+            font-size: 25px;
+        };
+
+        @include media("desktop") {
+            font-size: 30px;
+        };
+    };
+};
