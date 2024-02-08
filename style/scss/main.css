@@ -1,0 +1,27 @@
+@import "https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap";
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+.header {
+  background-color: #0C2D57;
+}
+.header__title {
+  color: #FC6736;
+  font-size: 20px;
+}
+@media screen and (min-width: 750px) {
+  .header__title {
+    font-size: 25px;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .header__title {
+    font-size: 30px;
+  }
+}/*# sourceMappingURL=main.css.map */
