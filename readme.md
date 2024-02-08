@@ -9,4 +9,4 @@ Welcome to my weather app.
 3. connect homepage with netilfy to see the result
 4. implement SASS for CSS
 
-[Hier gehts zur Homepage](https://weatherapp-dorissch.netlify.app)
+[Weather App](https://weatherapp-dorissch.netlify.app)
