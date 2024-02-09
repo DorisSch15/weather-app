@@ -1,5 +1,5 @@
 .header {
-    background-color: $backgroundHero;
+    background-color: $background;
 
 
     // @include media("tablet") {
@@ -9,14 +9,22 @@
     // };
 
     &__title {
+        width: max-content;
+        margin: 0 auto;
+        padding: 20px;
+
         color: $title;
         font-size: 20px;
 
         @include media("tablet") {
+            padding: 25px;
+
             font-size: 25px;
         };
 
         @include media("desktop") {
+            padding: 30px;
+            
             font-size: 30px;
         };
     };

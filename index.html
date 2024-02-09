@@ -10,9 +10,23 @@
     <header class="header">
         <h1 class="header__title">Wie sieht das Wetter wohl aus ?</h1>
     </header>
-    <main class="weather-table">
-        
+    <main class="weather">
+        <form class="weather__form">
+            <label for="city" class="weather__form-question">Wohin solls gehen ?</label>
+            <input type="text" id="city" name="city" class="weather__form-input">
+        </form>
+        <ul class="weather__list">
+            <li class="weather__list-item"><span>Bild</span><span>#</span></li>
+            <li class="weather__list-item"><span>Wetter:</span><span>#</span></li>
+            <li class="weather__list-item"><span>Teparatur:</span><span>#</span></li>
+            <li class="weather__list-item"><span>Fühlt sich an wie:</span><span>#</span></li>
+            <li class="weather__list-item"><span>Sonnenaufgang:</span><span>#</span></li>
+            <li class="weather__list-item"><span>Sonnenuntergang:</span><span>#</span></li>
+        </ul>
     </main>
     
 </body>
+
+<script src="./app.js"></script>
+
 </html>

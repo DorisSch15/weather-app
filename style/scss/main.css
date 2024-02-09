@@ -12,16 +12,52 @@
   background-color: #0C2D57;
 }
 .header__title {
+  width: max-content;
+  margin: 0 auto;
+  padding: 20px;
   color: #FC6736;
   font-size: 20px;
 }
 @media screen and (min-width: 750px) {
   .header__title {
+    padding: 25px;
     font-size: 25px;
   }
 }
 @media screen and (min-width: 1600px) {
   .header__title {
+    padding: 30px;
     font-size: 30px;
   }
+}
+
+.weather__form, .weather__list {
+  width: 80vw;
+  margin: 20px auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #EFECEC;
+}
+@media screen and (min-width: 750px) {
+  .weather__form, .weather__list {
+    width: 50vw;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .weather__form, .weather__list {
+    width: 50vw;
+  }
+}
+.weather__form-question {
+  padding-bottom: 5px;
+}
+.weather__form-input {
+  padding: 5px;
+  font-size: 16px;
+}
+.weather__list-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
 }/*# sourceMappingURL=main.css.map */
