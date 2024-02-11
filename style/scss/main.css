@@ -37,7 +37,6 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
-  background-color: #EFECEC;
 }
 @media screen and (min-width: 750px) {
   .weather__form, .weather__list {
@@ -49,6 +48,9 @@
     width: 50vw;
   }
 }
+.weather__form {
+  background-color: #EFECEC;
+}
 .weather__form-question {
   padding-bottom: 5px;
 }
@@ -57,6 +59,7 @@
   font-size: 16px;
 }
 .weather__list {
+  background-color: #FFB0B0;
   list-style-type: none;
 }
 .weather__list-item {
@@ -64,6 +67,10 @@
   justify-content: space-between;
   padding: 5px;
 }
-.weather__list-item-icon {
+.weather__list-item-icon, .weather__list-item-info {
   margin: 0 auto;
+}
+.weather__list-item-info:last-child {
+  padding-bottom: 20px;
+  background-color: blue;
 }/*# sourceMappingURL=main.css.map */
