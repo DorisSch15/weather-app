@@ -31,7 +31,7 @@ function listWeatherData(weatherData){
     const list = document.querySelector('.weather__list');
 
     list.innerHTML = `
-        <li class="weather__list-item"><span>Bild</span><img src="${weatherData.weather[0].icon}" alt=""></li> 
+        <li class="weather__list-item-icon"><img src="http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png" alt=""></li> 
         <li class="weather__list-item"><span>Wetter:</span><span>${weatherData.weather[0].description}</span></li>
         <li class="weather__list-item"><span>Teparatur:</span><span>${Math.round(weatherData.main.temp)} °C</span></li>
         <li class="weather__list-item"><span>Fühlt sich an wie:</span><span>${Math.round(weatherData.main.feels_like)} °C</span></li>

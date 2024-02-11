@@ -56,8 +56,14 @@
   padding: 5px;
   font-size: 16px;
 }
+.weather__list {
+  list-style-type: none;
+}
 .weather__list-item {
   display: flex;
   justify-content: space-between;
   padding: 5px;
+}
+.weather__list-item-icon {
+  margin: 0 auto;
 }/*# sourceMappingURL=main.css.map */
