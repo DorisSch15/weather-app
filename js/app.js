@@ -10,7 +10,7 @@ async function getLatLon(city) {
 
     const cityName = city.target[0].value;
 
-    const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=e449b5d801c6fc0ba6090fd71f6352e3`);
+    const response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=e449b5d801c6fc0ba6090fd71f6352e3`);
     const coordinates = await response.json();
     
     const lat = coordinates[0].lat;
