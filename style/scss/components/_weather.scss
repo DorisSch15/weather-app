@@ -32,11 +32,9 @@
     }
 
     &__list {
-
-        background-color: $heroWeather;
-
+        // background-color: $heroWeather;
         list-style-type: none;
-
+        
         &-item {
             display: flex;
             justify-content: space-between;

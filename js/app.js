@@ -35,6 +35,7 @@ currentWeather();
  
 function listWeatherData(weatherData){
     const list = document.querySelector('.weather__list');
+    list.style.backgroundColor = "#FFB0B0";
 
     list.innerHTML = `
         <li class="weather__list-item weather__list-item-icon"><img src="http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png" alt=""></li> 
