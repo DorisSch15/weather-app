@@ -13,4 +13,9 @@ export function unixFormattedTime(unixTimestamp){
     const formattedTime = `${hours} : ${minutes.substr(-2)}`;
 
     return formattedTime;
-}
+};
+
+export function getDay(unixTimestamp) {
+    const day = new Date(unixTimestamp * 1000).toDateString();
+    return day;
+};

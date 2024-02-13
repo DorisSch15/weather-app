@@ -8,6 +8,10 @@
   font-family: "Montserrat", sans-serif;
 }
 
+.footer {
+  margin-top: 20px;
+}
+
 .header {
   background-color: #0C2D57;
 }
@@ -60,6 +64,8 @@
 }
 .weather__list {
   list-style-type: none;
+  border: solid #0C2D57 2px;
+  border-radius: 20px;
 }
 .weather__list-item {
   display: flex;
@@ -72,4 +78,40 @@
 .weather__list-item-info:last-child {
   padding-bottom: 20px;
   background-color: blue;
+}
+.weather__more-days {
+  width: 80vw;
+  margin: 0 auto;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+  justify-content: space-between;
+}
+@media screen and (min-width: 750px) {
+  .weather__more-days {
+    width: 50vw;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (min-width: 1600px) {
+  .weather__more-days {
+    width: 70vw;
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+.weather__more-days-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #FC6736;
+  border: solid #0C2D57 2px;
+  border-radius: 20px;
+}
+.weather__more-days-item-title, .weather__more-days-item-icon, .weather__more-days-item-info {
+  margin: 0 auto;
+}
+.weather__more-days-item-text {
+  display: flex;
+  justify-content: space-between;
 }/*# sourceMappingURL=main.css.map */
