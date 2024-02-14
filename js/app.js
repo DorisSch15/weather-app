@@ -1,8 +1,9 @@
 import { unixFormattedTime } from "./unix.js";
 import { getDay } from "./unix.js";
 
+
 const form = document.querySelector('.weather__form');
-form.addEventListener('submit', getLatLon)
+form.addEventListener('submit', getLatLon);
 
 async function getLatLon(event) {
     event.preventDefault();
@@ -24,6 +25,8 @@ async function getWeatherData(lat, lon) {
         let weatherData = await response.json();
 
     listWeatherData(weatherData);
+
+    console.log(weatherData);
 };
 
 function currentWeather(){

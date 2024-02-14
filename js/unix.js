@@ -16,8 +16,8 @@ export function unixFormattedTime(unixTimestamp){
 };
 
 export function getDay(unixTimestamp) {
-    const day = new Date(unixTimestamp * 1000).toDateString();
-    console.log(day);
-    return day;
+    const day = dayjs(unixTimestamp * 1000).locale('de');
+
+    return day.format('dd, DD. MMM YYYY');
 
 };
