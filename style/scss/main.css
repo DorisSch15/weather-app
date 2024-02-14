@@ -90,7 +90,7 @@
 @media screen and (min-width: 750px) {
   .weather__more-days {
     width: 50vw;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 }
 @media screen and (min-width: 1600px) {

@@ -17,5 +17,7 @@ export function unixFormattedTime(unixTimestamp){
 
 export function getDay(unixTimestamp) {
     const day = new Date(unixTimestamp * 1000).toDateString();
+    console.log(day);
     return day;
+
 };

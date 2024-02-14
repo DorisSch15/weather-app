@@ -4,10 +4,10 @@ import { getDay } from "./unix.js";
 const form = document.querySelector('.weather__form');
 form.addEventListener('submit', getLatLon)
 
-async function getLatLon(city) {
-    city.preventDefault();
+async function getLatLon(event) {
+    event.preventDefault();
 
-    const cityName = city.target[0].value;
+    const cityName = event.target[0].value;
 
     const response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=e449b5d801c6fc0ba6090fd71f6352e3`);
     const coordinates = await response.json();
@@ -66,7 +66,7 @@ function showMoreDays(forecast){
     // viewport.style.backgroundColor = "#FFB0B0";
 
     viewport.innerHTML = forecast.list.map((time) => {
-        if(time.dt_txt.includes('00:00:00') === true) {
+        if(time.dt_txt.includes('12:00:00') === true) {
             return `
                 <div class="weather__more-days-item">
                     <h5 class="weather__more-days-title">${getDay(time.dt)}</h5>

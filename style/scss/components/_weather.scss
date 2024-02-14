@@ -68,7 +68,7 @@
         
         @include media("tablet") {
             width: 50vw;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr;
             
         };
         
