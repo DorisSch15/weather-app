@@ -1,11 +1,10 @@
 .wrapper {
-    max-width: 768px;
-    margin: 1.25rem auto;
-    padding: 4rem;
-
     display: flex;
     flex-direction: column;
-    
+    max-width: 768px;
+    margin: 1rem auto;
+    padding: 2rem;
+
     @include media("tablet") {
         max-width: 1024px;
     };
@@ -18,18 +17,17 @@
 .form {
     display: flex;
     flex-direction: column;
-
     padding: 1rem;
 
     background-color: $hero;
     
     &__question {
-        padding-bottom: 5px;
+        padding-bottom: 0.3rem;
     };
     
     &__input {
-        padding: 5px;
-        font-size: 16px;
+        padding: 0.3rem;
+        font-size: 1rem;
     };
 };
 
@@ -41,18 +39,22 @@
     margin-top: 2rem;
     padding: 1rem;
     background-color: $heroWeather;
-    border: solid $border .125rem;
+    border: solid $border 0.125rem;
     border-radius: 1.25rem;
 
     
     &__item {
         display: flex;
         justify-content: space-between;
-        padding: 5px;
+        padding: 0.3rem;
         
         &-icon,
         &-info {
             margin: 0 auto;
+        };
+
+        &-info {
+            padding-bottom: 2.5rem;
         };
     };
 };
@@ -62,20 +64,18 @@
     list-style-type: none;
 
     display: grid;
-    gap: 20px;
+    gap: 1.25rem;
     grid-template-columns: 1fr;
     
     justify-content: space-between;
     
     @include media("tablet") {
         grid-template-columns: repeat(2, 1fr);
-        
     };
     
     @include media("desktop") {
         margin: 2rem 0;
-        grid-template-columns: repeat(4, 1fr);
-        
+        grid-template-columns: repeat(3, 1fr);
     };
     
     &-item {
@@ -83,9 +83,9 @@
         flex-direction: column;
         justify-content: space-between;
         
-        padding: 20px;
+        padding: 1.25rem;
         background-color: $heroForecast;
-        border: solid $border .125rem;
+        border: solid $border 0.125rem;
         border-radius: 1.25rem;
 
         &-title,
@@ -97,6 +97,10 @@
         &-text {
             display: flex;
             justify-content: space-between;
+        };
+
+        &-info {
+            padding-bottom: 2.5rem;
         };
     };
 };

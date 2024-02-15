@@ -18,29 +18,29 @@
 .header__title {
   width: max-content;
   margin: 0 auto;
-  padding: 20px;
+  padding: 1.25rem;
   color: #FC6736;
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 @media screen and (min-width: 1024px) {
   .header__title {
-    padding: 25px;
-    font-size: 25px;
+    padding: 1.5625rem;
+    font-size: 1.5625rem;
   }
 }
 @media screen and (min-width: 1280px) {
   .header__title {
-    padding: 30px;
-    font-size: 30px;
+    padding: 1.875rem;
+    font-size: 1.875rem;
   }
 }
 
 .wrapper {
-  max-width: 768px;
-  margin: 1.25rem auto;
-  padding: 4rem;
   display: flex;
   flex-direction: column;
+  max-width: 768px;
+  margin: 1rem auto;
+  padding: 2rem;
 }
 @media screen and (min-width: 1024px) {
   .wrapper {
@@ -60,11 +60,11 @@
   background-color: #EFECEC;
 }
 .form__question {
-  padding-bottom: 5px;
+  padding-bottom: 0.3rem;
 }
 .form__input {
-  padding: 5px;
-  font-size: 16px;
+  padding: 0.3rem;
+  font-size: 1rem;
 }
 
 .today {
@@ -80,17 +80,20 @@
 .today__item {
   display: flex;
   justify-content: space-between;
-  padding: 5px;
+  padding: 0.3rem;
 }
 .today__item-icon, .today__item-info {
   margin: 0 auto;
+}
+.today__item-info {
+  padding-bottom: 2.5rem;
 }
 
 .forecast {
   margin: 2rem 0;
   list-style-type: none;
   display: grid;
-  gap: 20px;
+  gap: 1.25rem;
   grid-template-columns: 1fr;
   justify-content: space-between;
 }
@@ -102,14 +105,14 @@
 @media screen and (min-width: 1280px) {
   .forecast {
     margin: 2rem 0;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 .forecast-item {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 20px;
+  padding: 1.25rem;
   background-color: #FC6736;
   border: solid #0C2D57 0.125rem;
   border-radius: 1.25rem;
@@ -120,4 +123,7 @@
 .forecast-item-text {
   display: flex;
   justify-content: space-between;
+}
+.forecast-item-info {
+  padding-bottom: 2.5rem;
 }/*# sourceMappingURL=main.css.map */

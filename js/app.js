@@ -76,36 +76,13 @@ showForecast(forecast);
 
 function showForecast(forecast){
     const viewport = document.querySelector('.forecast');
-    let itemString;
-
-    // forecast.map(() => {
-        
-    //     console.log(itemString);
-        
-    //     if(itemString.dt_txt.includes('12:00:00') === true) {
-    //         return `
-    //         <li class="weather__more-days-item">
-    //         <h5 class="weather__more-days-title">${getDay(time.dt)}</h5>
-    //         <p class="weather__more-days-item-icon"><img src="http://openweathermap.org/img/wn/${time.weather[0].icon}@4x.png" alt=""></p> 
-    //         <p class="weather__more-days-item-info"><span>${time.weather[0].description}</span></p>
-    //         <p class="weather__more-days-item-text"><span>Temperatur</span><span>${Math.round(time.main.temp)} °C</span></p>
-    //         <p class="weather__more-days-item-text"><span>Fühlt sich an wie</span><span>${Math.round(time.main.feels_like)} °C</span></p>
-    //         </li>
-    //         `;
-    //     };
-        
-    //     itemString++
-
-    // }).join('');
-    
-    // viewport.innerHTML = itemString;
-
+    let itemString = '';
 
     for(const time of forecast.list){
-        if(time.dt_txt.includes('00:00:00') === true) {
+        if(time.dt_txt.includes('12:00:00')) {
             itemString += `
                 <li class="forecast-item">
-                    <h5 class="forecast-title">${getDay(time.dt)}</h5>
+                    <h4 class="forecast-title">${getDay(time.dt)}</h4>
                     <p class="forecast-item-icon">
                         <img src="http://openweathermap.org/img/wn/${time.weather[0].icon}@4x.png" alt="">
                     </p> 
@@ -123,5 +100,4 @@ function showForecast(forecast){
         ` };
     };
     viewport.innerHTML = itemString;
-    console.log(itemString);
 };

@@ -1,31 +1,24 @@
 .header {
     background-color: $background;
 
-
-    // @include media("tablet") {
-    // };
-
-    // @include media("desktop") {
-    // };
-
     &__title {
         width: max-content;
         margin: 0 auto;
-        padding: 20px;
+        padding: 1.25rem;
 
         color: $title;
-        font-size: 20px;
+        font-size: 1.25rem;
 
         @include media("tablet") {
-            padding: 25px;
+            padding: 1.5625rem;
 
-            font-size: 25px;
+            font-size: 1.5625rem;
         };
 
         @include media("desktop") {
-            padding: 30px;
+            padding: 1.875rem;
             
-            font-size: 30px;
+            font-size: 1.875rem;
         };
     };
 };
