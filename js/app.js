@@ -1,7 +1,7 @@
 import { getTime, getDay } from "./unix.js";
 
 
-const form = document.querySelector('.weather__form');
+const form = document.querySelector('.form');
 form.addEventListener('submit', getLatLon);
 
 async function getLatLon(event) {
@@ -38,16 +38,31 @@ currentWeather();
 
 // one day weather 
 function listWeatherData(weatherData){
-    const list = document.querySelector('.weather__list');
-    list.style.backgroundColor = "#FFB0B0";
+    const list = document.querySelector('.today');
 
     list.innerHTML = `
-        <div class="weather__list-item weather__list-item-icon"><img src="http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png" alt=""></div> 
-        <div class="weather__list-item weather__list-item-info"><span>${weatherData.weather[0].description}</span></div>
-        <div class="weather__list-item"><span>Temperatur</span><span>${Math.round(weatherData.main.temp)} °C</span></div>
-        <div class="weather__list-item"><span>Fühlt sich an wie</span><span>${Math.round(weatherData.main.feels_like)} °C</span></div>
-        <div class="weather__list-item"><span>Sonnenaufgang</span><span>${getTime(weatherData.sys.sunrise + weatherData.timezone)} Uhr</span></div>
-        <div class="weather__list-item"><span>Sonnenuntergang</span><span>${getTime(weatherData.sys.sunset + weatherData.timezone)} Uhr</span></div>
+        <div class="today__item today__item-icon">
+            <img src="http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png" alt="">
+        </div> 
+        <div class="today__item today__item-info">
+            <p>${weatherData.weather[0].description}</p>
+        </div>
+        <div class="today__item">
+            <p>Temperatur</p>
+            <p>${Math.round(weatherData.main.temp)} °C</p>
+        </div>
+        <div class="today__item">
+            <p>Fühlt sich an wie</p>
+            <p>${Math.round(weatherData.main.feels_like)} °C</span>
+        </div>
+        <div class="today__item">
+            <p>Sonnenaufgang</p>
+            <p>${getTime(weatherData.sys.sunrise + weatherData.timezone)} Uhr</p>
+        </div>
+        <div class="today__item">
+            <p>Sonnenuntergang</p>
+            <p>${getTime(weatherData.sys.sunset + weatherData.timezone)} Uhr</p>
+        </div>
     `;
 };
 
@@ -60,7 +75,7 @@ showForecast(forecast);
 };
 
 function showForecast(forecast){
-    const viewport = document.querySelector('.weather__more-days');
+    const viewport = document.querySelector('.forecast');
     let itemString;
 
     // forecast.map(() => {
@@ -89,12 +104,21 @@ function showForecast(forecast){
     for(const time of forecast.list){
         if(time.dt_txt.includes('00:00:00') === true) {
             itemString += `
-                <li class="weather__more-days-item">
-                    <h5 class="weather__more-days-title">${getDay(time.dt)}</h5>
-                    <p class="weather__more-days-item-icon"><img src="http://openweathermap.org/img/wn/${time.weather[0].icon}@4x.png" alt=""></p> 
-                    <p class="weather__more-days-item-info"><span>${time.weather[0].description}</span></p>
-                    <p class=""><span>Temperatur</span><span>${Math.round(time.main.temp)} °C</span></p>
-                    <p class=""><span>Fühlt sich an wie</span><span>${Math.round(time.main.feels_like)} °C</span></p>
+                <li class="forecast-item">
+                    <h5 class="forecast-title">${getDay(time.dt)}</h5>
+                    <p class="forecast-item-icon">
+                        <img src="http://openweathermap.org/img/wn/${time.weather[0].icon}@4x.png" alt="">
+                    </p> 
+                    <p class="forecast-item-info">
+                        <span>${time.weather[0].description}</span>
+                    </p>
+                    <p class="forecast-item-text">
+                        <span>Temperatur</span><span>${Math.round(time.main.temp)} °C</span>
+                    </p>
+                    <p class="forecast-item-text">
+                        <span>Fühlt sich an wie</span>
+                        <span>${Math.round(time.main.feels_like)} °C</span>
+                    </p>
                 </li>
         ` };
     };
