@@ -1,23 +1,12 @@
-export function unixFormattedTime(unixTimestamp){
-    // Create a new JavaScript Date object based on the timestamp
-    // multiplied by 1000 so that the argument is in milliseconds, not seconds
-    const date = new Date(unixTimestamp * 1000);
+export function getTime(unixTimestamp) {
+    const time = dayjs(unixTimestamp * 1000).locale('de');
 
-    // Hours part from the timestamp
-    const hours = date.getHours();
+    return time.format('HH.mm');
 
-    // Minutes part from the timestamp
-    const minutes = "0" + date.getMinutes();
-
-    // Will display time in 10:30:23 format
-    const formattedTime = `${hours} : ${minutes.substr(-2)}`;
-
-    return formattedTime;
 };
 
 export function getDay(unixTimestamp) {
     const day = dayjs(unixTimestamp * 1000).locale('de');
 
     return day.format('dd, DD. MMM YYYY');
-
 };

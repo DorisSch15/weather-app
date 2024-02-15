@@ -1,5 +1,4 @@
-import { unixFormattedTime } from "./unix.js";
-import { getDay } from "./unix.js";
+import { getTime, getDay } from "./unix.js";
 
 
 const form = document.querySelector('.weather__form');
@@ -25,8 +24,6 @@ async function getWeatherData(lat, lon) {
         let weatherData = await response.json();
 
     listWeatherData(weatherData);
-
-    console.log(weatherData);
 };
 
 function currentWeather(){
@@ -45,12 +42,12 @@ function listWeatherData(weatherData){
     list.style.backgroundColor = "#FFB0B0";
 
     list.innerHTML = `
-        <li class="weather__list-item weather__list-item-icon"><img src="http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png" alt=""></li> 
-        <li class="weather__list-item weather__list-item-info"><span>${weatherData.weather[0].description}</span></li>
-        <li class="weather__list-item"><span>Temperatur</span><span>${Math.round(weatherData.main.temp)} °C</span></li>
-        <li class="weather__list-item"><span>Fühlt sich an wie</span><span>${Math.round(weatherData.main.feels_like)} °C</span></li>
-        <li class="weather__list-item"><span>Sonnenaufgang</span><span>${unixFormattedTime(weatherData.sys.sunrise + weatherData.timezone)} Uhr</span></li>
-        <li class="weather__list-item"><span>Sonnenuntergang</span><span>${unixFormattedTime(weatherData.sys.sunset + weatherData.timezone)} Uhr</span></li>
+        <div class="weather__list-item weather__list-item-icon"><img src="http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@4x.png" alt=""></div> 
+        <div class="weather__list-item weather__list-item-info"><span>${weatherData.weather[0].description}</span></div>
+        <div class="weather__list-item"><span>Temperatur</span><span>${Math.round(weatherData.main.temp)} °C</span></div>
+        <div class="weather__list-item"><span>Fühlt sich an wie</span><span>${Math.round(weatherData.main.feels_like)} °C</span></div>
+        <div class="weather__list-item"><span>Sonnenaufgang</span><span>${getTime(weatherData.sys.sunrise + weatherData.timezone)} Uhr</span></div>
+        <div class="weather__list-item"><span>Sonnenuntergang</span><span>${getTime(weatherData.sys.sunset + weatherData.timezone)} Uhr</span></div>
     `;
 };
 
@@ -59,38 +56,48 @@ async function getForecast(lat, lon) {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=e449b5d801c6fc0ba6090fd71f6352e3&units=metric&lang=de`);
     const forecast = await response.json();
 
-showMoreDays(forecast);
-console.log(forecast);
+showForecast(forecast);
 };
 
-
-function showMoreDays(forecast){
+function showForecast(forecast){
     const viewport = document.querySelector('.weather__more-days');
-    // viewport.style.backgroundColor = "#FFB0B0";
+    let itemString;
 
-    viewport.innerHTML = forecast.list.map((time) => {
-        if(time.dt_txt.includes('12:00:00') === true) {
-            return `
-                <div class="weather__more-days-item">
+    // forecast.map(() => {
+        
+    //     console.log(itemString);
+        
+    //     if(itemString.dt_txt.includes('12:00:00') === true) {
+    //         return `
+    //         <li class="weather__more-days-item">
+    //         <h5 class="weather__more-days-title">${getDay(time.dt)}</h5>
+    //         <p class="weather__more-days-item-icon"><img src="http://openweathermap.org/img/wn/${time.weather[0].icon}@4x.png" alt=""></p> 
+    //         <p class="weather__more-days-item-info"><span>${time.weather[0].description}</span></p>
+    //         <p class="weather__more-days-item-text"><span>Temperatur</span><span>${Math.round(time.main.temp)} °C</span></p>
+    //         <p class="weather__more-days-item-text"><span>Fühlt sich an wie</span><span>${Math.round(time.main.feels_like)} °C</span></p>
+    //         </li>
+    //         `;
+    //     };
+        
+    //     itemString++
+
+    // }).join('');
+    
+    // viewport.innerHTML = itemString;
+
+
+    for(const time of forecast.list){
+        if(time.dt_txt.includes('00:00:00') === true) {
+            itemString += `
+                <li class="weather__more-days-item">
                     <h5 class="weather__more-days-title">${getDay(time.dt)}</h5>
                     <p class="weather__more-days-item-icon"><img src="http://openweathermap.org/img/wn/${time.weather[0].icon}@4x.png" alt=""></p> 
                     <p class="weather__more-days-item-info"><span>${time.weather[0].description}</span></p>
-                    <p class="weather__more-days-item-text"><span>Temperatur</span><span>${Math.round(time.main.temp)} °C</span></p>
-                    <p class="weather__more-days-item-text"><span>Fühlt sich an wie</span><span>${Math.round(time.main.feels_like)} °C</span></p>
-                </div>
+                    <p class=""><span>Temperatur</span><span>${Math.round(time.main.temp)} °C</span></p>
+                    <p class=""><span>Fühlt sich an wie</span><span>${Math.round(time.main.feels_like)} °C</span></p>
+                </li>
         ` };
-    }).join('');
-
-    // for(const time of Object.entries(forecast.list)){
-    //     if(list.dt_txt.includes('00:00:00') === true) {
-    //         viewport.innerHTML = `
-    //             <div class="weather__more-days-item">
-    //                 <h5 class="weather__more-days-title">${getDay(time.dt)}</h5>
-    //                 <div class="weather__more-days-item-icon"><img src="http://openweathermap.org/img/wn/${time.weather[0].icon}@4x.png" alt=""></div> 
-    //                 <div class="weather__more-days-item-info"><span>${time.weather[0].description}</span></div>
-    //                 <div class=""><span>Temperatur</span><span>${Math.round(time.main.temp)} °C</span></div>
-    //                 <div class=""><span>Fühlt sich an wie</span><span>${Math.round(time.main.feels_like)} °C</span></div>
-    //             </div>
-    //     ` };
-    // };
+    };
+    viewport.innerHTML = itemString;
+    console.log(itemString);
 };
