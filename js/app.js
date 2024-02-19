@@ -4,11 +4,29 @@ import { getTime, getDay } from "./unix.js";
 const form = document.querySelector('.form');
 form.addEventListener('submit', getLatLon);
 
+const loader = document.querySelector('.loader');
+const list = document.querySelector('.today');
+const viewport = document.querySelector('.forecast');
+
+function showLoader(loading) {
+    if(loading === true) {
+        loader.style.display = 'block'
+        list.style.display = 'none';
+        viewport.style.display = 'none';
+    } else {
+        loader.style.display = 'none';
+        list.style.display = 'flex';
+        viewport.style.display = 'grid';
+    };
+};
+
+
 async function getLatLon(event) {
+
     event.preventDefault();
-
+    
     const cityName = event.target[0].value;
-
+    
     const response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=e449b5d801c6fc0ba6090fd71f6352e3`);
     const coordinates = await response.json();
     
@@ -27,9 +45,11 @@ async function getWeatherData(lat, lon) {
 };
 
 function currentWeather(){
+    showLoader(true);
     navigator.geolocation.getCurrentPosition((currentCity) => {
         getWeatherData(currentCity.coords.latitude, currentCity.coords.longitude);
         getForecast(currentCity.coords.latitude, currentCity.coords.longitude);
+        showLoader(false);
     });
 };
 
@@ -38,7 +58,6 @@ currentWeather();
 
 // one day weather 
 function listWeatherData(weatherData){
-    const list = document.querySelector('.today');
 
     list.innerHTML = `
         <div class="today__item today__item-icon">
@@ -75,7 +94,7 @@ showForecast(forecast);
 };
 
 function showForecast(forecast){
-    const viewport = document.querySelector('.forecast');
+
     let itemString = '';
 
     for(const time of forecast.list){
@@ -99,5 +118,7 @@ function showForecast(forecast){
                 </li>
         ` };
     };
+
     viewport.innerHTML = itemString;
+
 };
