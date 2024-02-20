@@ -31,7 +31,8 @@
     };
 };
 
-.today {
+.today,
+.loader {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -41,8 +42,7 @@
     background-color: $heroWeather;
     border: solid $border 0.125rem;
     border-radius: 1.25rem;
-
-    
+   
     &__item {
         display: flex;
         justify-content: space-between;
@@ -60,11 +60,14 @@
 };
 
 .loader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.75s, visibilty 0.75s;
-};
+    margin: 2rem auto;
+    width: 100%;
+
+    &__text {
+        display: flex;
+        justify-content: center;
+    }
+}
 
 .forecast {
     margin: 2rem 0;
